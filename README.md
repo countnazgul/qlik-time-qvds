@@ -47,7 +47,8 @@ Load * Inline [
 ];
 
 for i = 1 to FieldValueCount('Seconds')
-	let sSeconds = FieldValue('Seconds', $(i));
+
+    let sSeconds = FieldValue('Seconds', $(i));
     let sDescr = FieldValue('Descr', $(i));
 
     for a = 0 to 86400 step $(sSeconds)
@@ -57,6 +58,7 @@ for i = 1 to FieldValueCount('Seconds')
             Time( $(a) / 86400, 'hh:mm:ss') as Range_$(sSeconds)
         AutoGenerate(1)
         ;
+        
     next   
     
     Store Range_$(sSeconds) into [lib://Personal/Range_$(sDescr).qvd];
